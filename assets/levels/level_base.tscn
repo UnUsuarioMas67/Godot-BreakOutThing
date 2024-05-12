@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuwwn4nnxc6ld"]
+
+[ext_resource type="PackedScene" uid="uid://bled4who1gsif" path="res://assets/bricks/brick_map.tscn" id="1_jm64w"]
+[ext_resource type="PackedScene" uid="uid://bwem348ctr8rf" path="res://assets/paddle/paddle.tscn" id="2_nu7h2"]
+
+[node name="Level" type="Node2D"]
+process_mode = 1
+
+[node name="BrickMap" parent="." instance=ExtResource("1_jm64w")]
+layer_0/tile_data = PackedInt32Array(196614, 0, 20, 196615, 0, 20, 196616, 0, 20, 393224, 655360, 12, 524296, 655360, 12, 196617, 0, 20, 196618, 0, 20, 196619, 0, 20, 393227, 655360, 12, 524299, 655360, 12, 196620, 0, 20, 196621, 0, 20, 720902, 0, 20, 720903, 0, 20, 720904, 0, 20, 720907, 0, 20, 720908, 0, 20, 720909, 0, 20, 327689, 655360, 12, 327690, 655360, 12, 458761, 655360, 12, 458762, 655360, 12, 589833, 0, 0, 589834, 0, 0, 327691, 0, 0, 327688, 0, 0, 262150, 0, 13, 327686, 0, 13, 393222, 0, 13, 458758, 0, 13, 524294, 0, 13, 589830, 0, 13, 655366, 0, 13, 262157, 0, 13, 327693, 0, 13, 393229, 0, 13, 458765, 0, 13, 524301, 0, 13, 589837, 0, 13, 655373, 0, 13)
+
+[node name="Paddle" parent="." instance=ExtResource("2_nu7h2")]
+position = Vector2(320, 320)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(512, 48)
+gizmo_extents = 384.0
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(128, 208)
+gizmo_extents = 384.0

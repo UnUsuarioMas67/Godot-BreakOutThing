@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4s6exe2b8ker"]
+
+[ext_resource type="PackedScene" uid="uid://bwem348ctr8rf" path="res://assets/paddle/paddle.tscn" id="1_4u647"]
+[ext_resource type="PackedScene" uid="uid://bled4who1gsif" path="res://assets/bricks/brick_map.tscn" id="1_kg5k3"]
+[ext_resource type="Script" path="res://assets/main/BallDestroyer.gd" id="2_gr4iy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_siqfr"]
+size = Vector2(72, 360)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iob7k"]
+size = Vector2(680, 56)
+
+[node name="Main" type="Node2D"]
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
+
+[node name="ColorRect" type="ColorRect" parent="Walls/StaticBody2D"]
+offset_right = 72.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D"]
+position = Vector2(36, 180)
+shape = SubResource("RectangleShape2D_siqfr")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Walls"]
+position = Vector2(360, -72)
+rotation = 1.57079
+
+[node name="ColorRect" type="ColorRect" parent="Walls/StaticBody2D3"]
+offset_right = 72.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(36, 180)
+shape = SubResource("RectangleShape2D_siqfr")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Walls"]
+position = Vector2(720, -72)
+rotation = 1.57079
+
+[node name="ColorRect" type="ColorRect" parent="Walls/StaticBody2D4"]
+offset_right = 72.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D4"]
+position = Vector2(36, 180)
+shape = SubResource("RectangleShape2D_siqfr")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Walls"]
+position = Vector2(568, 0)
+
+[node name="ColorRect" type="ColorRect" parent="Walls/StaticBody2D2"]
+offset_right = 72.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D2"]
+position = Vector2(36, 180)
+shape = SubResource("RectangleShape2D_siqfr")
+
+[node name="Paddle" parent="." instance=ExtResource("1_4u647")]
+position = Vector2(320, 320)
+
+[node name="BallDestroyer" type="Area2D" parent="."]
+position = Vector2(320, 408)
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource("2_gr4iy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BallDestroyer"]
+shape = SubResource("RectangleShape2D_iob7k")
+
+[node name="TileMap" parent="." instance=ExtResource("1_kg5k3")]
+layer_0/tile_data = PackedInt32Array(589831, 0, 12, 589832, 0, 12, 589835, 0, 12, 589836, 0, 12, 655367, 0, 13, 720903, 0, 14, 655368, 0, 13, 720904, 0, 14, 589833, 262144, 16, 655369, 262144, 17, 720905, 262144, 18, 589834, 262144, 16, 655370, 262144, 17, 720906, 262144, 18, 655371, 0, 13, 720907, 0, 14, 655372, 0, 13, 720908, 0, 14, 458761, 917504, 0)

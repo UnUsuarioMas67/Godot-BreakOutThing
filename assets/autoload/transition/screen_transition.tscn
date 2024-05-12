@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqy7rq0hsn2wd"]
+
+[ext_resource type="Script" path="res://assets/autoload/transition/screen_transition.gd" id="1_gueb6"]
+[ext_resource type="Shader" path="res://assets/autoload/transition/screen_transition.gdshader" id="1_lean7"]
+[ext_resource type="Texture2D" uid="uid://cv3yvw3clsbv8" path="res://assets/autoload/transition/screen_transition.png" id="2_cnga2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_spbgr"]
+shader = ExtResource("1_lean7")
+shader_parameter/transition_color = null
+shader_parameter/percent = 0.0
+shader_parameter/transition_texture = ExtResource("2_cnga2")
+
+[node name="ScreenTransition" type="CanvasLayer"]
+process_mode = 3
+layer = 10
+script = ExtResource("1_gueb6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_spbgr")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CenterContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "LEVEL 0"
+horizontal_alignment = 1

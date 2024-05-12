@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bled4who1gsif"]
+
+[ext_resource type="TileSet" uid="uid://wpnyhcirelt2" path="res://assets/bricks/brick_tileset.tres" id="1_pho8k"]
+[ext_resource type="Script" path="res://assets/bricks/brick_map.gd" id="2_p5s0e"]
+
+[node name="BrickMap" type="TileMap" groups=["brick_map"]]
+tile_set = ExtResource("1_pho8k")
+format = 2
+script = ExtResource("2_p5s0e")

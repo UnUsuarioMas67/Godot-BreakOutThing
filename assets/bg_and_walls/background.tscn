@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bavidikttby7v"]
+
+[ext_resource type="Script" path="res://assets/bg_and_walls/background.gd" id="1_36ret"]
+[ext_resource type="Texture2D" uid="uid://3o4w0da75k8" path="res://assets/bg_and_walls/Purple.png" id="1_xvyqp"]
+
+[node name="Background" type="CanvasLayer"]
+layer = -1
+script = ExtResource("1_36ret")
+x_speed = 20.0
+y_speed = 20.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.0627451, 0.152941, 0.396078, 1)
+texture_repeat = 2
+position = Vector2(320, 180)
+texture = ExtResource("1_xvyqp")
+region_enabled = true
+region_rect = Rect2(0, 0, 640, 360)

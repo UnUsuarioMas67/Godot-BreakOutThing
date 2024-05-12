@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1xw8evi2uue"]
+
+[ext_resource type="Script" path="res://assets/main/lives_component.gd" id="1_w10ax"]
+[ext_resource type="AudioStream" uid="uid://ctpforof0cu27" path="res://assets/sfx/ball_lost.wav" id="2_yk78g"]
+
+[node name="LivesComponent" type="Node"]
+script = ExtResource("1_w10ax")
+
+[node name="BallLostSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_yk78g")
+volume_db = -10.0

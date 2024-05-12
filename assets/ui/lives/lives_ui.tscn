@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4uxbvhjw0qfl"]
+
+[ext_resource type="Script" path="res://assets/ui/lives/lives_ui.gd" id="1_ayfk6"]
+[ext_resource type="PackedScene" uid="uid://bcnth7qy4l3r5" path="res://assets/ui/lives/heart.tscn" id="1_xs2pq"]
+
+[node name="LivesUI" type="MarginContainer"]
+offset_right = 102.0
+offset_bottom = 32.0
+theme_override_constants/margin_left = 4
+script = ExtResource("1_ayfk6")
+
+[node name="HeartContainer" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 2
+
+[node name="Heart" parent="HeartContainer" instance=ExtResource("1_xs2pq")]
+layout_mode = 2
+
+[node name="Heart2" parent="HeartContainer" instance=ExtResource("1_xs2pq")]
+layout_mode = 2
+
+[node name="Heart3" parent="HeartContainer" instance=ExtResource("1_xs2pq")]
+layout_mode = 2

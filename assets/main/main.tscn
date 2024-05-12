@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://c4s6exe2b8ker"]
+
+[ext_resource type="Script" path="res://assets/main/BallDestroyer.gd" id="2_gr4iy"]
+[ext_resource type="PackedScene" uid="uid://bavidikttby7v" path="res://assets/bg_and_walls/background.tscn" id="2_yid83"]
+[ext_resource type="PackedScene" uid="uid://b3rufxffmr0gb" path="res://assets/ui/hud.tscn" id="3_2qlge"]
+[ext_resource type="PackedScene" uid="uid://t2jt01c6i3w7" path="res://assets/bg_and_walls/walls.tscn" id="3_15sg2"]
+[ext_resource type="PackedScene" uid="uid://cuwwn4nnxc6ld" path="res://assets/levels/level_base.tscn" id="7_v6ksd"]
+
+[sub_resource type="GDScript" id="GDScript_olskq"]
+script/source = "extends Node2D
+
+const PAUSE_MENU_SCENE: PackedScene = preload(\"res://assets/ui/pause/pause_menu.tscn\")
+
+
+func _ready():
+	GameEvents.game_started.emit()
+
+
+func _unhandled_input(event):
+	if event.is_action_pressed(\"pause\") and GameState.pausable:
+		var pause_menu = PAUSE_MENU_SCENE.instantiate()
+		add_child(pause_menu)
+		get_tree().root.set_input_as_handled()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iob7k"]
+size = Vector2(680, 56)
+
+[node name="Main" type="Node2D"]
+script = SubResource("GDScript_olskq")
+
+[node name="HUD" parent="." instance=ExtResource("3_2qlge")]
+layer = 2
+
+[node name="Background" parent="." instance=ExtResource("2_yid83")]
+
+[node name="Walls" parent="." instance=ExtResource("3_15sg2")]
+x_speed = 15.0
+y_speed = 15.0
+
+[node name="BallDestroyer" type="Area2D" parent="."]
+position = Vector2(320, 408)
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource("2_gr4iy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BallDestroyer"]
+shape = SubResource("RectangleShape2D_iob7k")
+
+[node name="LevelContainer" type="Node2D" parent="." groups=["level_container"]]
+
+[node name="Level" parent="LevelContainer" instance=ExtResource("7_v6ksd")]

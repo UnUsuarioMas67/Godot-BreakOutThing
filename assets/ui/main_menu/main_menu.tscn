@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://bavwow1p5vv0s"]
+
+[ext_resource type="PackedScene" uid="uid://bavidikttby7v" path="res://assets/bg_and_walls/background.tscn" id="1_v1x51"]
+
+[sub_resource type="GDScript" id="GDScript_plh02"]
+script/source = "extends Control
+
+@onready var play_button = %PlayButton
+@onready var exit_button = %ExitButton
+
+
+func _ready():
+	play_button.pressed.connect(
+		func():
+			GameState.start_game()
+	)
+	
+	exit_button.pressed.connect(
+		func():
+			get_tree().quit()
+	)
+"
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = SubResource("GDScript_plh02")
+
+[node name="Background" parent="." instance=ExtResource("1_v1x51")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -82.0
+offset_right = 110.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "BreakOut Thing"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 16
+text = "PLAY"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 16
+text = "EXIT"

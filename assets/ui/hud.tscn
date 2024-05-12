@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3rufxffmr0gb"]
+
+[ext_resource type="PackedScene" uid="uid://c4uxbvhjw0qfl" path="res://assets/ui/lives/lives_ui.tscn" id="1_6gbua"]
+[ext_resource type="PackedScene" uid="uid://c1xw8evi2uue" path="res://assets/main/lives_component.tscn" id="1_hnj57"]
+[ext_resource type="PackedScene" uid="uid://bx0asxt7tp1yh" path="res://assets/main/score_component.tscn" id="2_daond"]
+[ext_resource type="PackedScene" uid="uid://1nobi1lygwm" path="res://assets/ui/score/score_ui.tscn" id="2_u5m2k"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="LivesComponent" parent="." instance=ExtResource("1_hnj57")]
+
+[node name="ScoreComponent" parent="." instance=ExtResource("2_daond")]
+
+[node name="LivesUI" parent="." node_paths=PackedStringArray("lives_component") instance=ExtResource("1_6gbua")]
+offset_left = 128.0
+offset_right = 230.0
+lives_component = NodePath("../LivesComponent")
+
+[node name="ScoreUI" parent="." node_paths=PackedStringArray("score_component") instance=ExtResource("2_u5m2k")]
+offset_left = 128.0
+offset_top = 332.0
+offset_right = -128.0
+offset_bottom = 360.0
+score_component = NodePath("../ScoreComponent")

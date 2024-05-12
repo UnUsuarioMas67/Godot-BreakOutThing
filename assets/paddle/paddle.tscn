@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwem348ctr8rf"]
+
+[ext_resource type="Script" path="res://assets/paddle/paddle.gd" id="1_54xnx"]
+[ext_resource type="Texture2D" uid="uid://di1qb0i3eo5ka" path="res://assets/BreakOut Assets x2.png" id="2_f1bdw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfi23"]
+size = Vector2(64, 12)
+
+[node name="Paddle" type="CharacterBody2D" groups=["paddle"]]
+collision_layer = 2
+script = ExtResource("1_54xnx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yfi23")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_f1bdw")
+region_enabled = true
+region_rect = Rect2(96, 400, 64, 16)
+
+[node name="BallSpawnPoint" type="Marker2D" parent="."]
+position = Vector2(0, -6)
