@@ -1,8 +1,11 @@
 extends Node
 
 const LEVELS := [
-	"res://assets/levels/level_base.tscn", 
-	"res://assets/levels/level_base.tscn",
+	"res://assets/levels/level1.tscn",
+	"res://assets/levels/level2.tscn", 
+	"res://assets/levels/level3.tscn",
+	"res://assets/levels/level4.tscn",
+	"res://assets/levels/level5.tscn",
 	]
 
 var current_level: int

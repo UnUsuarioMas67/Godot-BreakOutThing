@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bavidikttby7v" path="res://assets/bg_and_walls/background.tscn" id="2_yid83"]
 [ext_resource type="PackedScene" uid="uid://b3rufxffmr0gb" path="res://assets/ui/hud.tscn" id="3_2qlge"]
 [ext_resource type="PackedScene" uid="uid://t2jt01c6i3w7" path="res://assets/bg_and_walls/walls.tscn" id="3_15sg2"]
-[ext_resource type="PackedScene" uid="uid://cuwwn4nnxc6ld" path="res://assets/levels/level_base.tscn" id="7_v6ksd"]
+[ext_resource type="PackedScene" uid="uid://d16ic21ch044c" path="res://assets/levels/level1.tscn" id="5_uc5jc"]
 
 [sub_resource type="GDScript" id="GDScript_olskq"]
 script/source = "extends Node2D
@@ -50,4 +50,4 @@ shape = SubResource("RectangleShape2D_iob7k")
 
 [node name="LevelContainer" type="Node2D" parent="." groups=["level_container"]]
 
-[node name="Level" parent="LevelContainer" instance=ExtResource("7_v6ksd")]
+[node name="Level" parent="LevelContainer" instance=ExtResource("5_uc5jc")]
